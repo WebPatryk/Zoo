@@ -1,0 +1,130 @@
+.container {
+  max-width: 300px;
+  background-color: $primary-color;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+
+  .navbarItem {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+
+    p {
+      font-weight: 500;
+    }
+  }
+
+  .image {
+    text-align: center;
+  }
+  .iconContainer {
+    margin: 1rem 1rem 1rem 0;
+  }
+  .contactContainer {
+    background-color: $white-color;
+    padding: 11rem 1rem 1rem 1rem;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+
+    h4 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
+      color: $gray-color;
+      margin-top: 0;
+    }
+    .contactImage {
+      position: absolute;
+      top: -5rem;
+      left: 0;
+    }
+  }
+  .button {
+    background-color: $tertiary-color;
+    border-radius: 50%;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+
+    svg {
+      font-size: 1.5rem;
+      color: $white-color;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      margin: auto;
+    }
+  }
+  .scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: lightblue;
+  }
+}
+
+//navbar
+
+.list,
+.listElement {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    margin-left: 1.5rem;
+  }
+}
+
+.li {
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 100%;
+  padding: 10px 15px;
+  position: relative;
+  //background: white;
+  cursor: pointer;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  user-select: none;
+}
+
+.underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: $white-color;
+  border-radius: 30% 6px 6px 30%;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.listElement.selected {
+  background: red;
+}

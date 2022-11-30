@@ -1,0 +1,12 @@
+.userContent {
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin-left: 1rem;
+    color: $tertiary-color;
+  }
+}
+.appDescription {
+  color: $gray-color;
+}

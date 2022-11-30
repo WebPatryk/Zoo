@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem 0;
+}
+.container > div {
+  margin: 0 2rem;
+}
+.bellContainer {
+  position: relative;
+}
+.bell {
+  font-size: 2rem;
+}
+.notificationCount {
+  position: absolute;
+  top: -10px;
+  right: -17px;
+  background-color: $red-color;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  color: $white-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.userContainer {
+  display: flex;
+  align-items: center;
+}
+
+.userLogo {
+  font-size: 2.5rem;
+  color: #ffad0d;
+  margin-right: 1rem;
+}
+
+.userName {
+  font-weight: 500;
+}
