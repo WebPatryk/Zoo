@@ -53,6 +53,7 @@ const Events: NextPage = () => {
           signal
         });
         const data = await response.json();
+
         setEvents(data);
         console.log(data);
       } catch (error) {

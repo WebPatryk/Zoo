@@ -3,6 +3,7 @@ import '../../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Layout from '../components/layout/Layout';
 import React, { useEffect } from 'react';
+import App from 'next/app';
 
 function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   const loginPage = [`/login`].includes(appProps.router.pathname);
@@ -16,5 +17,9 @@ function MyApp({ Component, pageProps, ...appProps }: AppProps) {
     </LayoutComponent>
   );
 }
+
+MyApp.getInitialProps = async (appContext: any) => ({
+  ...(await App.getInitialProps(appContext))
+});
 
 export default appWithTranslation(MyApp);
