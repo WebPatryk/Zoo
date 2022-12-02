@@ -9,19 +9,11 @@ import Visitors from '../components/Visitors/Visitors';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation, withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import Spinner from '../components/utils/Spinner/Spinner';
 
 const Home: NextPage = () => {
   const { locale, push, locales } = useRouter();
 
-  // const { t } = locale === 'en' ? en : pl;
   const { t } = useTranslation('common');
-  // const switchLangauge = () => {
-  //   const locale = 'pl';
-  //   console.log('e');
-  //   push('/', '/', { locale });
-  // };
 
   const handleClick = (l: any) => {
     push('/', undefined, { locale: l });
@@ -48,7 +40,6 @@ const Home: NextPage = () => {
               );
             })}
         </div>
-        {/*<button onClick={switchLangauge}>Switch Language</button>*/}
         <p style={{ fontSize: '1.5rem' }}>{t('title')}</p>
         <br />
         <p style={{ fontSize: '1.5rem' }}>{t('greeting')}</p>
@@ -84,7 +75,6 @@ export async function getStaticProps({ locale }: { locale: any }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common']))
-      // Will be passed to the page component as props
     }
   };
 }
