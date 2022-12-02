@@ -1,12 +1,14 @@
 import type { NextPage } from 'next';
-import Image from 'next/image';
 import styles from './Visitors.module.scss';
-import hand from '../../../assets/hand.png';
 
 const Visitors: NextPage = () => {
   return (
     <div className={styles.wrapper}>
       <h3>Zoo's Visitors</h3>
+      <img
+        src="https://www.shutterstock.com/image-vector/set-colourful-business-charts-diagram-260nw-1388414240.jpg"
+        alt=""
+      />
       {/*Chart*/}
     </div>
   );

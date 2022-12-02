@@ -11,6 +11,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 interface Navigation {
   icon: SVGAElement;
@@ -26,7 +27,9 @@ const navigation = [
 
 const Navbar: NextPage = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
-  const [selectedTab, setSelectedTab] = useState<Navigation>(navigation[0]);
+  const [selectedTab, setSelectedTab] = useState<any>(navigation[0].href);
+
+  const router = useRouter();
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -46,7 +49,7 @@ const Navbar: NextPage = () => {
   }
 
   const contentClassname = (item: any) => {
-    return item.icon === selectedTab.icon
+    return item.href.substring(1) === router.pathname.substring(1)
       ? `${styles['selected']} ${styles.li}`
       : '';
   };
@@ -63,12 +66,15 @@ const Navbar: NextPage = () => {
               key={item.label}
               className={[contentClassname(item), styles.navbarItem].join(' ')}
               onClick={() => {
-                setSelectedTab(item);
+                setSelectedTab(item.href);
               }}
             >
               <Image src={item.icon} height={30} width={30} alt="icon" />
-              <Link href={item.href}>{item.label}</Link>
-              {item.icon === selectedTab.icon ? (
+              <Link href={item.href}>{item.label}</Link>{' '}
+              {item.href.substring(1) === router.pathname.substring(1)
+                ? 'tak'
+                : 'nie'}
+              {item.href.substring(1) === router.pathname.substring(1) ? (
                 <motion.div className={styles.underline} layoutId="underline" />
               ) : null}
             </li>

@@ -7,17 +7,11 @@ import Events from '../components/Events/Events';
 import Feed from '../components/Feed/Feed';
 import Visitors from '../components/Visitors/Visitors';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation, withTranslation } from 'next-i18next';
+import { withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
-const Home: NextPage = () => {
-  const { locale, push, locales } = useRouter();
-
-  const { t } = useTranslation('common');
-
-  const handleClick = (l: any) => {
-    push('/', undefined, { locale: l });
-  };
+const Home = ({ eventsData }: { eventsData: any }) => {
+  const router = useRouter();
 
   return (
     <div className={styles.container}>
@@ -28,25 +22,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <p>{t('description')}</p>
-        <h1>{locale}</h1>
-        <div className={styles.navbar}>
-          {locales &&
-            locales.map((l, i) => {
-              return (
-                <button key={l} onClick={() => handleClick(l)}>
-                  {l}
-                </button>
-              );
-            })}
-        </div>
-        <p style={{ fontSize: '1.5rem' }}>{t('title')}</p>
-        <br />
-        <p style={{ fontSize: '1.5rem' }}>{t('greeting')}</p>
+        <div className={styles.navbar}></div>
         <Greetings />
-        <Events />
-        <Feed />
-        <Visitors />
+        <Events eventsData={eventsData} />
+        <section style={{ display: 'flex' }}>
+          <Feed />
+          <Visitors />
+        </section>
       </main>
 
       <footer className={styles.footer}>
@@ -65,16 +47,16 @@ const Home: NextPage = () => {
   );
 };
 
-Home.getInitialProps = async () => ({
-  namespacesRequired: ['common']
-});
-
 export default withTranslation('common')(Home);
 
 export async function getStaticProps({ locale }: { locale: any }) {
+  const res = await fetch('http://localhost:3001/events');
+  const eventsData = await res.json();
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common']))
+      ...(await serverSideTranslations(locale, ['common'])),
+      eventsData
     }
   };
 }

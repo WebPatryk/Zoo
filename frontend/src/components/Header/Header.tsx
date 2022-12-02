@@ -2,20 +2,17 @@ import type { NextPage } from 'next';
 import styles from './Header.module.scss';
 import { FaRegBell, FaUserCircle } from 'react-icons/fa';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const Header: NextPage = () => {
-  const { locale, push, locales } = useRouter();
+  const { locale, push } = useRouter();
   const [language, setLanguage] = useState(locale);
 
   const changeLanguage = (e: any) => {
+    const lang = e.target.value;
     setLanguage(e.target.value);
+    push('/', undefined, { locale: lang });
   };
-
-  useEffect(() => {
-    push('/', undefined, { locale: language });
-  }, [language]);
 
   return (
     <div className={styles.container}>

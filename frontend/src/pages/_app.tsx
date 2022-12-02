@@ -1,8 +1,8 @@
-import { appWithTranslation, i18n } from 'next-i18next';
+import { appWithTranslation } from 'next-i18next';
 import '../../styles/globals.css';
-import type { AppProps } from 'next/app';
+import type { AppContext, AppProps } from 'next/app';
 import Layout from '../components/layout/Layout';
-import React, { useEffect } from 'react';
+import React from 'react';
 import App from 'next/app';
 
 function MyApp({ Component, pageProps, ...appProps }: AppProps) {
@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   );
 }
 
-MyApp.getInitialProps = async (appContext: any) => ({
+MyApp.getInitialProps = async (appContext: AppContext) => ({
   ...(await App.getInitialProps(appContext))
 });
 

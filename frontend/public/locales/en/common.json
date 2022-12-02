@@ -1,4 +1,7 @@
  {
-  "description": "Ble2",
-  "title": "Welcome"
+  "title": "Hello",
+   "description": "Help other animals in frontend buying food for them, taking part in events and much much more. Find a people whose share your passion to animals and spend time together.",
+   "feed": {
+     "title": "Feeded animals"
+   }
 }
