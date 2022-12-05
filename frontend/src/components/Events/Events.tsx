@@ -55,6 +55,7 @@ const Events = ({ eventsData }: { eventsData: EventInterface[] }) => {
             <Event {...event} />
           </div>
         ))}
+          <button className={styles.readMore}>Read more...</button>
       </section>
     </div>
   );

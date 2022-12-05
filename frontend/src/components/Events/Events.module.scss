@@ -1,7 +1,21 @@
-.eventContainer {
-  display: flex;
 
-}
 .title{
   color: $tertiary-color;
 }
+
+.eventContainer {
+  display: flex;
+
+  .readMore{
+    align-self: flex-end;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    &:hover{
+      box-shadow: 0 0 3px $primary-color;
+    }
+  }
+
+}
+

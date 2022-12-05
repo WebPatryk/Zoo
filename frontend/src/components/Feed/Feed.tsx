@@ -49,13 +49,14 @@ const Feed: NextPage = () => {
   const { t } = useTranslation('common');
   return (
     <div className={styles.wrapper}>
-      <h3>{t('feed.title')}</h3>
+      <h3 className={styles.title}>{t('feed.title')}</h3>
 
       <Swiper
         spaceBetween={30}
         pagination={{
-          clickable: true
+          clickable: true,
         }}
+        grabCursor={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
         className="mySwiper"
         navigation={true}

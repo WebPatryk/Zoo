@@ -1,0 +1,14 @@
+.wrapper{
+  flex: 1;
+
+
+  .title{
+    color: $tertiary-color;
+    font-size: 1.4rem;
+    margin-top: 4rem;
+  }
+.chart{
+  display: flex;
+  min-width: 500px;
+}
+}
