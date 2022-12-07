@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { ErrorMessage } from '@hookform/error-message';
+import { log } from 'util';
 
 type Inputs = {
   name: string;
@@ -21,13 +22,43 @@ const Login: NextPage = () => {
     watch,
     formState: { errors }
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = data => {
+  const onSubmit: SubmitHandler<Inputs> = async userData => {
+    console.log(userData);
+
+    // const { username, password } = data;
+
+    const response = await fetch('/api/auth/login', {
+      method: 'POST',
+      body: JSON.stringify(userData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+  };
+
+  const getUser = async () => {
+    const response = await fetch('/api/auth/user');
+
+    const data = await response.json();
+
+    console.log(data);
+  };
+
+  const logout = async () => {
+    const response = await fetch('/api/auth/logout');
+
+    const data = await response.json();
+
     console.log(data);
   };
 
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
 
-  console.log(watch('name')); // watch input value by passing the name of it
+  // console.log(watch('name')); // watch input value by passing the name of it
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -114,6 +145,10 @@ const Login: NextPage = () => {
             </Link>
           </p>
         </form>
+
+        <button onClick={getUser}>Get user data</button>
+        <br />
+        <button onClick={logout}>Logout</button>
       </div>
     </div>
   );
