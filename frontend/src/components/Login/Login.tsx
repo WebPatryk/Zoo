@@ -8,10 +8,10 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { ErrorMessage } from '@hookform/error-message';
-import { log } from 'util';
+import { useRouter } from 'next/router';
 
 type Inputs = {
-  name: string;
+  username: string;
   password: string;
 };
 
@@ -19,25 +19,29 @@ const Login: NextPage = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors }
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = async userData => {
-    console.log(userData);
 
+  const router = useRouter();
+
+  const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
     // const { username, password } = data;
+    const userData = { username: 'john', password: 'change' };
 
+    console.log(data);
     const response = await fetch('/api/auth/login', {
       method: 'POST',
-      body: JSON.stringify(userData),
+      body: JSON.stringify(data),
       headers: {
         'Content-Type': 'application/json'
       }
     });
 
-    const data = await response.json();
-
-    console.log(data);
+    const responseData = await response.json();
+    console.log(responseData);
+    if (responseData.message === 'Success!') {
+      await router.push('/');
+    }
   };
 
   const getUser = async () => {
@@ -75,15 +79,19 @@ const Login: NextPage = () => {
         <Image src={icon} height={100} width={100} alt="Dog image" />
         <h1 className={styles.title}>Login</h1>
         <p className={styles.subtitle}>To animals word's</p>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className={styles.form}
+          onSubmit={handleSubmit(onSubmit)}
+          autoComplete="off"
+        >
           <input
             type="text"
             placeholder="Username"
             className={styles.input}
-            {...register('name', {
+            {...register('username', {
               required: 'Username is required',
               minLength: {
-                value: 6,
+                value: 3,
                 message: 'Username is too short'
               },
               maxLength: {
@@ -94,7 +102,7 @@ const Login: NextPage = () => {
           />
           <ErrorMessage
             errors={errors}
-            name="name"
+            name="username"
             as="p"
             className={styles.error}
           />
@@ -107,7 +115,7 @@ const Login: NextPage = () => {
               {...register('password', {
                 required: 'Password is required',
                 minLength: {
-                  value: 6,
+                  value: 3,
                   message: 'Password is too short'
                 },
                 maxLength: {
@@ -141,14 +149,10 @@ const Login: NextPage = () => {
           <p className={styles.noAccount}>
             Don't have an account
             <Link href="/register">
-              <a className={styles.signUpText}>Sign up</a>
+              <span className={styles.signUpText}>Sign up</span>
             </Link>
           </p>
         </form>
-
-        <button onClick={getUser}>Get user data</button>
-        <br />
-        <button onClick={logout}>Logout</button>
       </div>
     </div>
   );

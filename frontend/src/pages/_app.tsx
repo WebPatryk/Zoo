@@ -13,11 +13,9 @@ function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   const LayoutComponent = loginPage || registerPage ? React.Fragment : Layout;
 
   return (
-    <LayoutAuthenticated>
-      <LayoutComponent>
-        <Component {...pageProps} />
-      </LayoutComponent>
-    </LayoutAuthenticated>
+    <LayoutComponent>
+      <Component {...pageProps} />
+    </LayoutComponent>
   );
 }
 

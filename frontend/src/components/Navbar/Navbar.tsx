@@ -64,19 +64,24 @@ const Navbar: NextPage = () => {
           {navigation.map(item => (
             <li
               key={item.label}
-              className={[contentClassname(item), styles.navbarItem].join(' ')}
+              className={contentClassname(item)}
               onClick={() => {
                 setSelectedTab(item.href);
               }}
             >
-              <Image src={item.icon} height={30} width={30} alt="icon" />
-              <Link href={item.href}>{item.label}</Link>{' '}
-              {/*{item.href.substring(1) === router.pathname.substring(1)*/}
-              {/*  ? 'tak'*/}
-              {/*  : 'nie'}*/}
-              {item.href.substring(1) === router.pathname.substring(1) ? (
-                <motion.div className={styles.underline} layoutId="underline" />
-              ) : null}
+              <Link className={styles.link} href={item.href}>
+                <Image src={item.icon} height={30} width={30} alt="icon" />
+                <p>{item.label}</p>
+                {/*{item.href.substring(1) === router.pathname.substring(1)*/}
+                {/*  ? 'tak'*/}
+                {/*  : 'nie'}*/}
+                {item.href.substring(1) === router.pathname.substring(1) ? (
+                  <motion.div
+                    className={styles.underline}
+                    layoutId="underline"
+                  />
+                ) : null}
+              </Link>
             </li>
           ))}
         </ul>

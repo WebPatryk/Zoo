@@ -1,3 +1,5 @@
 export const jwtConstants = {
-  secret: 'TSASdazxczxcq1234123123',
+  secret: 'qnwehb12h3b124123123qmdkasdfaSDSASdasdasd',
+  refreshSecret: 'xmncjansjdnjn132j123',
+  refreshTokenExpiration: 60,
 };

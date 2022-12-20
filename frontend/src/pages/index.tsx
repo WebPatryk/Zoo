@@ -9,6 +9,7 @@ import Visitors from '../components/Visitors/Visitors';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { withTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Home = ({ eventsData }: { eventsData: any }) => {
   const router = useRouter();
@@ -30,19 +31,6 @@ const Home = ({ eventsData }: { eventsData: any }) => {
           <Visitors />
         </section>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   );
 };

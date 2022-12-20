@@ -72,13 +72,13 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 // import styles from '../styles/layout.module.css';
 
-export default function LayoutAuthenticated(props) {
+export default function LayoutAuthenticated(props: any) {
   const [profile, setProfile] = useState();
   const router = useRouter();
 
-  useEffect(() => {
-    fetchProfile();
-  }, []);
+  // useEffect(() => {
+  //   fetchProfile();
+  // }, []);
 
   async function fetchProfile() {
     const res = await fetch(`http://localhost:3001`, {

@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 import Navbar from '../Navbar/Navbar';
 import Header from '../Header/Header';
 import styles from './Layout.module.scss';
+import Image from 'next/image';
+import Footer from '../Footer/Footer';
 
 interface Props {
   children?: ReactNode;
@@ -14,7 +16,10 @@ const Layout = ({ children, ...props }: Props): JSX.Element => {
         <Navbar />
         <div className={styles.main}>
           <Header />
-          <main>{children}</main>
+          <main>
+            {children}
+            <Footer />
+          </main>
         </div>
       </div>
     </div>

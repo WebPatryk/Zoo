@@ -9,6 +9,9 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
     prependData: `@import "styles/main.scss";`
   },
+  experimental: {
+    allowMiddlewareResponseBody: true
+  },
   i18n
 };
 
