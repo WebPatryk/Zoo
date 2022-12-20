@@ -30,6 +30,7 @@
 .userContainer {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .userLogo {
@@ -40,4 +41,41 @@
 
 .userName {
   font-weight: 500;
+  cursor: pointer;
+}
+.userModal{
+  position: absolute;
+  top: 50px;
+  background-color: $fourth-color;
+  width: 100%;
+  border-radius: 4px;
+
+}
+.useModalElement{
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  transition: background-color .3s ease-in-out;
+  &:hover {
+    background-color: $tertiary-color;
+  }
+  &:hover svg, &:hover p {
+    color: $white-color;
+  }
+
+
+  svg{
+    width: 18px;
+    height: 18px;
+    margin: 0 1rem 0 .5rem;
+    color: $black-color;
+
+  }
+
+  p{
+    color: $black-color;
+    margin: .6rem 0;
+
+  }
 }
