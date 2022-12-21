@@ -20,7 +20,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       },
       body: JSON.stringify({ username, password })
     });
-
     if (!response.ok) {
       throw new Error(response.statusText);
     }

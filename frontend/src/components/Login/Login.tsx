@@ -40,9 +40,30 @@ const Login: NextPage = () => {
     const responseData = await response.json();
     console.log(responseData);
     if (responseData.message === 'Success!') {
-      await router.push('/');
+
+      //check if userHas avatar
+      await checkAvatar()
+
+
+      // await router.push('/');
     }
   };
+
+  const checkAvatar = async()=>{
+      const response = await fetch('avatar');
+
+      const responseData = await response.json();
+      // setAvatar(responseData);
+
+    if(responseData){
+      await router.push('/');
+    }
+    else{
+      await router.push('/avatar');
+    }
+      console.log(responseData);
+  }
+
 
   const getUser = async () => {
     const response = await fetch('/api/auth/user');

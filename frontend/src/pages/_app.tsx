@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps, ...appProps }: AppProps) {
       <Component {...pageProps} />
     </LayoutComponent>
   );
+
 }
 
 MyApp.getInitialProps = async (appContext: AppContext) => ({
