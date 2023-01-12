@@ -2,6 +2,9 @@ import styles from './AddNewEvent.module.scss';
 
 import React, {  useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import {motion } from 'framer-motion'
+
+
 
 type Inputs = {
   name: string;
@@ -180,7 +183,6 @@ const AddNewEvent = (props: any) => {
             </div>
           </div>
         </div>
-      </div>
 </motion.div>
 );
 };
