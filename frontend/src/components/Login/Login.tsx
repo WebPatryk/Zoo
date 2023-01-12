@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { ErrorMessage } from '@hookform/error-message';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
 
 type Inputs = {
   username: string;
@@ -36,11 +37,18 @@ const Login: NextPage = () => {
         'Content-Type': 'application/json'
       }
     });
-
     const responseData = await response.json();
     console.log(responseData);
+    console.log('dupa');
     if (responseData.message === 'Success!') {
+      toast.success('Welcome user', {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
       await router.push('/');
+    } else {
+      toast.error('Passed data are uncorrected', {
+        position: toast.POSITION.BOTTOM_RIGHT
+      });
     }
   };
 

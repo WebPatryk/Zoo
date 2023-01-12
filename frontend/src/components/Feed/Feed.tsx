@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper';
-import CustomProgressBar from '../../utils/CustomProgressBar';
+import CustomProgressBar from '../utils/components/ProgressBar/CustomProgressBar';
 
 const Feed: NextPage = () => {
   const defaultData = [
@@ -54,7 +54,7 @@ const Feed: NextPage = () => {
       <Swiper
         spaceBetween={30}
         pagination={{
-          clickable: true,
+          clickable: true
         }}
         grabCursor={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}

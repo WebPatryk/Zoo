@@ -1,21 +1,32 @@
-
-.title{
-  color: $tertiary-color;
-}
-
-.eventContainer {
-  display: flex;
-
-  .readMore{
-    align-self: flex-end;
-    border: none;
-    background: none;
-    cursor: pointer;
-
-    &:hover{
-      box-shadow: 0 0 3px $primary-color;
-    }
+.events {
+  .title {
+    color: $tertiary-color;
   }
 
-}
+  .eventContainer {
+    display: flex;
 
+    .readMore {
+      align-self: flex-end;
+      border: none;
+      background: none;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 0 3px $primary-color;
+      }
+    }
+
+  }
+  .link {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: $gray-color;
+    margin-left: auto;
+
+    svg{
+      margin-left: .5rem;
+    }
+  }
+}

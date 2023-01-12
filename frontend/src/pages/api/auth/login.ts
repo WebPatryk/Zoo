@@ -11,7 +11,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   const { username, password }: UserData = req.body;
 
   const secret = process.env.SECRET;
-
   try {
     const response = await fetch('http://localhost:3001/auth/login', {
       method: 'POST',
@@ -21,6 +20,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       body: JSON.stringify({ username, password })
     });
 
+    console.log(response.ok);
     if (!response.ok) {
       throw new Error(response.statusText);
     }
@@ -44,6 +44,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       res.status(401).json({ message: 'Invalid credentials!' });
     }
   } catch (error) {
+    res.status(401).json({ message: error + 'Error!' });
     console.log(error, 'err');
   }
 }

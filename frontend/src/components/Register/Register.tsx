@@ -163,7 +163,7 @@ const Register: NextPage = () => {
           <p className={styles.noAccount}>
             Already have an account?
             <Link href="/login">
-              <a className={styles.signUpText}>Log in</a>
+              <span className={styles.signUpText}>Log in</span>
             </Link>
           </p>
 

@@ -1,6 +1,11 @@
 
   .eventBox {
     display: flex;
+    background-color: $fourth-color;
+    margin: 0 1rem 0 0;
+    padding: .5rem;
+    border-radius: 3px;
+
 
   div{
     width: 300px;

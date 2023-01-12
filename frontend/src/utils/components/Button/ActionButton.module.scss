@@ -1,0 +1,24 @@
+.button {
+  background-color: $secondary-color;
+  border: none;
+  color: $white-color;
+  font-size: 1rem;
+  font-width: 600;
+  cursor: pointer;
+}
+.circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+
+}
+.rectangle{
+  background-color: #ffad0d;
+  padding: 0.8rem 1.6rem;
+  border-radius: 3px;
+}
+

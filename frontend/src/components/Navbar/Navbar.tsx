@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import shpaeee from '../public/navbar-shape.svg';
 
 interface Navigation {
   icon: SVGAElement;

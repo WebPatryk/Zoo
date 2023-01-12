@@ -3,8 +3,10 @@ import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 import styles from './Events.module.scss';
 import { DiVim } from 'react-icons/all';
-import Spinner from '../utils/Spinner/Spinner';
+import Spinner from '../utils/components/Spinner/Spinner';
 import Event from '../Event/Event';
+import Link from 'next/link';
+import { FaAngleRight } from 'react-icons/fa';
 
 interface EventInterface {
   _id: string;
@@ -46,15 +48,20 @@ const Events = ({ eventsData }: { eventsData: EventInterface[] }) => {
   // }, []);
 
   return (
-    <div>
+    <div className={styles.events}>
       <h2 className={styles.title}>Upcoming Events</h2>
 
-      <section className={styles.eventContainer}>
-        {eventsData.slice(0, 3).map(event => (
-          <div key={event._id}>
-            <Event {...event} />
-          </div>
-        ))}
+      <section>
+        <div className={styles.eventContainer}>
+          {eventsData.slice(0, 3).map(event => (
+            <div key={event._id}>
+              <Event {...event} />
+            </div>
+          ))}
+        </div>
+        <Link href="/calendar" className={styles.link}>
+          Show more <FaAngleRight />
+        </Link>
       </section>
     </div>
   );

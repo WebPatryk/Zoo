@@ -10,12 +10,13 @@ import {
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useCookies } from 'react-cookie';
 
 const Header: NextPage = () => {
   const { locale, push } = useRouter();
   const [language, setLanguage] = useState(locale);
   const [isOpenModal, setIsOpenModal] = useState(false);
-
+  const [cookies, setCookie, removeCookie] = useCookies(['OutsiteJWT']);
   const changeLanguage = (e: any) => {
     const lang = e.target.value;
     setLanguage(e.target.value);
@@ -23,6 +24,24 @@ const Header: NextPage = () => {
   };
 
   const toggleOpenModal = () => {};
+
+  const logout = async () => {
+    // cookies.remove('OutsiteJWT');
+    // removeCookie('OutsiteJWT');
+    // document.cookie =
+    //   'OutsiteJWT; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    // push('/login');
+
+    const response = await fetch('/api/auth/logout', {
+      method: 'POST'
+    });
+
+    const responseData = await response.json();
+    console.log(responseData);
+    if (responseData.message === 'Success!') {
+      await push('/login');
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -54,7 +73,11 @@ const Header: NextPage = () => {
                 <FaCog className={styles.bell} />
                 <p className={styles.a}>Settings</p>
               </Link>
-              <Link href="/" className={styles.useModalElement}>
+              <Link
+                href="/"
+                className={styles.useModalElement}
+                onClick={logout}
+              >
                 <FaSignOutAlt className={styles.bell} />
                 <p className={styles.a}>Logout</p>
               </Link>

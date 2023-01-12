@@ -4,7 +4,8 @@ import type { AppContext, AppProps } from 'next/app';
 import Layout from '../components/layout/Layout';
 import React from 'react';
 import App from 'next/app';
-import LayoutAuthenticated from '../context/LayoutAuthenticated';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   const loginPage = [`/login`].includes(appProps.router.pathname);
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps, ...appProps }: AppProps) {
   return (
     <LayoutComponent>
       <Component {...pageProps} />
+      <ToastContainer />
     </LayoutComponent>
   );
 }
