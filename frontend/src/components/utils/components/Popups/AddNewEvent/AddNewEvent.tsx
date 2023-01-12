@@ -1,6 +1,6 @@
 import styles from './AddNewEvent.module.scss';
 
-import React, {  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 type Inputs = {
@@ -62,11 +62,11 @@ const AddNewEvent = (props: any) => {
   return (
 
       <div
-        style={{
-          visibility: props.modal.isOpen() ? 'visible' : 'hidden',
-          opacity: props.modal.isOpen() ? '1' : '0'
-        }}
-        className={styles.overlay}
+          style={{
+            visibility: props.modal.isOpen() ? 'visible' : 'hidden',
+            opacity: props.modal.isOpen() ? '1' : '0'
+          }}
+          className={styles.overlay}
       >
         <div className={styles.popup}>
           <h2>{props.title}</h2>
@@ -181,8 +181,8 @@ const AddNewEvent = (props: any) => {
           </div>
         </div>
       </div>
-    </motion.div>
-  );
+</motion.div>
+);
 };
 
 export default AddNewEvent;
