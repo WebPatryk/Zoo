@@ -16,16 +16,14 @@ const AddNewEvent = (props: any) => {
 
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = data => {
-    // console.log(data);
+
   };
 
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
 
   // console.log(watch('name')); // watch input value by passing the name of it
 
-  const togglePassword = () => {
-    setPasswordShown(!passwordShown);
-  };
+
 
   const handleSave = () => {
     console.log('Saved');
