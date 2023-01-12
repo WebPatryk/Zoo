@@ -16,7 +16,7 @@ const AddNewEvent = (props: any) => {
 
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = data => {
-    // console.log(data);
+
   };
 
   const [passwordShown, setPasswordShown] = useState<boolean>(false);
