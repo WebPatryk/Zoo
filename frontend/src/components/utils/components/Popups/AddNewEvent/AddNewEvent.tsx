@@ -4,7 +4,6 @@ import React, {  useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 
-
 type Inputs = {
   name: string;
   description: string;
