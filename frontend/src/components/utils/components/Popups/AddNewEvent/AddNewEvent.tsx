@@ -14,7 +14,6 @@ type Inputs = {
 const AddNewEvent = (props: any) => {
   const {
 
-    formState: { errors }
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = data => {
     // console.log(data);
