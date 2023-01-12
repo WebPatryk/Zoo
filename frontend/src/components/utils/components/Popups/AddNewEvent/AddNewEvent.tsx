@@ -1,13 +1,7 @@
 import styles from './AddNewEvent.module.scss';
 
-import React, { useEffect, useState } from 'react';
-import { ErrorMessage } from '@hookform/error-message';
-import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
-import Link from 'next/link';
+import React, {  useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useCookies } from 'react-cookie';
-import { log } from 'util';
-import { motion } from 'framer-motion';
 
 type Inputs = {
   name: string;
