@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps, ...appProps }: AppProps) {
       <ToastContainer />
     </LayoutComponent>
   );
+
 }
 
 MyApp.getInitialProps = async (appContext: AppContext) => ({
