@@ -37,9 +37,9 @@ const Login: NextPage = () => {
         'Content-Type': 'application/json'
       }
     });
+
     const responseData = await response.json();
     console.log(responseData);
-    console.log('dupa');
     if (responseData.message === 'Success!') {
       toast.success('Welcome user', {
         position: toast.POSITION.BOTTOM_RIGHT
@@ -50,7 +50,8 @@ const Login: NextPage = () => {
         position: toast.POSITION.BOTTOM_RIGHT
       });
     }
-  };
+  }
+
 
   const getUser = async () => {
     const response = await fetch('/api/auth/user');
