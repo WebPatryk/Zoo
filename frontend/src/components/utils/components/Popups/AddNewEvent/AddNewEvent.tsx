@@ -19,9 +19,7 @@ const AddNewEvent = (props: any) => {
 
   };
 
-  const [passwordShown, setPasswordShown] = useState<boolean>(false);
 
-  // console.log(watch('name')); // watch input value by passing the name of it
 
 
 
