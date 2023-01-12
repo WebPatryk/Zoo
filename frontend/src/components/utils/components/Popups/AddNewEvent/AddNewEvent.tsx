@@ -2,7 +2,6 @@ import styles from './AddNewEvent.module.scss';
 
 import React, {  useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import {motion } from 'framer-motion'
 
 
 
