@@ -60,7 +60,7 @@ const Navbar: NextPage = () => {
       <div className={styles.image}>
         <Image src={Icon} height={100} width={100} alt="icon" />
       </div>
-      <div>
+      <div style={{ width: '101%' }}>
         <ul className={styles.list}>
           {navigation.map(item => (
             <li

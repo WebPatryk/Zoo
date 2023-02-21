@@ -38,6 +38,7 @@
     "redux-saga": "^1.2.0",
     "sass": "^1.55.0",
     "swiper": "^8.4.5",
+    "swr": "^2.0.3",
     "util": "^0.12.5"
   },
   "devDependencies": {

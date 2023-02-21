@@ -12,7 +12,7 @@
 .backdrop{
   display: flex;
   align-items: center;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -38,7 +38,7 @@
 }
 .popup .close {
   position: absolute;
-  top: 20px;
+  top: 12px;
   right: 30px;
   transition: all 200ms;
   font-size: 30px;

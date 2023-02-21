@@ -19,6 +19,11 @@ textarea {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+p, span{
+  margin: 0;
+  padding: 0;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

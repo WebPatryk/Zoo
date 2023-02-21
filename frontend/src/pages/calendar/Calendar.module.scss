@@ -1,4 +1,3 @@
-
 .container {
   padding: 0 2rem;
 }
@@ -10,17 +9,17 @@
   flex-direction: column;
   margin-left: 300px;
 }
-.eventsList{
+.eventsList {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 60px;
 }
-.mainTitle{
+.mainTitle {
   font-weight: bold;
-  @include mainTitle
+  @include mainTitle;
 }
 
-.button{
+.button {
   margin-left: auto;
   display: flex;
 }
@@ -134,4 +133,89 @@
 .error::before {
   display: inline;
   content: '⚠ ';
+}
+.dropDownContainer {
+  margin: 2rem 0;
+  padding: 2rem 0;
+  border: 1px dashed $gray-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  border-radius: 6px;
+
+  p {
+    margin-top: 1rem;
+  }
+  svg{
+    margin-top: 0;
+  }
+
+}
+
+.draggingActive{
+  background-color: red;
+}
+.dragover{
+  background-color: red;
+}
+.fileInput{
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+}
+
+
+.dropfileinput {
+  position: relative;
+  border: 2px dashed $gray-color;
+  border-radius: 20px;
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropfileinput input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+
+}
+
+.dropfileinput:hover,
+.dropfileinput.dragover {
+  opacity: 0.6;
+}
+
+.dropfileinputlabel{
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.dropIcon{
+  display: block;
+  margin: 1rem auto;
+  font-size: 2.2rem;
+  color: $tertiary-color;
+}
+.dropText{
+  text-align: center;
+  color: $gray-color;
+  margin-bottom: 1rem;
+}
+
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  border-color: red;
+  background-color: gray;
 }

@@ -1,6 +1,6 @@
 // import ActionButton from 'components/Buttons/ActionButton';
 // import { CardHeader } from 'components/Content/Card';
-import React, { MouseEventHandler, useState } from 'react';
+import React, { MouseEventHandler, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './Modal.module.scss';
 import { motion } from 'framer-motion';
@@ -19,8 +19,16 @@ interface Args {
     confirm: ModalButtonArgs;
     close?: ModalButtonArgs;
   };
+  isOpen: boolean;
   className?: string;
 }
+
+type EffectCallback = () => void | Destructor;
+
+declare const UNDEFINED_VOID_ONLY: unique symbol;
+
+type Destructor = () => void | { [UNDEFINED_VOID_ONLY]: never };
+
 const Backdrop = ({ children, onClick }: any) => {
   return (
     <motion.div
@@ -40,6 +48,7 @@ export default function Modal({
   size,
   title,
   buttons,
+  isOpen,
   className
 }: Args) {
   const { t } = useTranslation('common');
@@ -64,6 +73,11 @@ export default function Modal({
       opacity: 0
     }
   };
+
+  useEffect((): any => {
+    document.body.style.overflow = 'hidden';
+    return () => (document.body.style.overflow = 'unset');
+  }, [isOpen]);
 
   return (
     <Backdrop onClick={buttons && buttons.close?.onClick}>
