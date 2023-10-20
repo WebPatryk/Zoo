@@ -50,8 +50,7 @@ const Login: NextPage = () => {
         position: toast.POSITION.BOTTOM_RIGHT
       });
     }
-  }
-
+  };
 
   const getUser = async () => {
     const response = await fetch('/api/auth/user');
@@ -81,7 +80,7 @@ const Login: NextPage = () => {
     <div className={styles.container}>
       <div className={styles.leftPanel}>
         <div className={styles.image}>
-          <Image src={dog} height={500} width={500} alt="icon" />
+          <Image src={dog} height={600} width={600} alt="icon" />
         </div>
       </div>
       <div className={styles.rightPanel}>

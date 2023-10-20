@@ -39,7 +39,7 @@ const Register: NextPage = () => {
     <div className={styles.container}>
       <div className={styles.leftPanel}>
         <div className={styles.image}>
-          <Image src={personWithDog} height={500} width={500} alt="icon" />
+          <Image src={personWithDog} height={600} width={600} alt="icon" />
         </div>
       </div>
       <div className={styles.rightPanel}>
